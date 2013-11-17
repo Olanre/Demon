@@ -12,7 +12,7 @@ public class MovementController
     }
     
     
-    public void checkIfValid()
+    public void validateMove()
     {
     	//TODO
     	//check board to see if move is valid
