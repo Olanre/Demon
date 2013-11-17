@@ -1,3 +1,5 @@
+package Board;
+
 /**************************
  * Player Profile
  * Project Demon

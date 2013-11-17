@@ -1,41 +1,35 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package pkg3716proj.Demon;
+package Board;
 
 /**
- *
- * @author ooo524
+ * Tile class is modular component of the 
+ * main game board
  */
-import java.awt.Color;
-import java.awt.Graphics2D;
+
+import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
-public class Tile  implements Drawable {
-    private RoundRectangle2D rect1;
-    private Color colourIndex = Color.GRAY;
+
+public class Tile  implements Drawable{
+    private Color colourIndex = Color.BLUE;
     int x, y, w, h;
-   
     
-    public Tile( int x, int y, int w, int h ) {
+    public Tile( int x, int y, int w, int h ){
          this.w = w;
          this.x = x;
          this.y = y;
-         this.h = h;
-         
+         this.h = h;        
     }
     
     public Tile( int w, int h ) {
          this.w = w;
-         this.h = h;
-         
+         this.h = h;         
     }
+    
     /**
      * nextColor - return the next colour in the array.
      *
      * @return the next colour
      */
-    private void setColor(Color new_color) {
+    private void setColor(Color new_color){
         this.colourIndex = new_color;
     }
 
@@ -46,23 +40,17 @@ public class Tile  implements Drawable {
      */
     
     @Override
-    public void draw(Graphics2D g2d) {
+    public void draw(Graphics2D g2d){
        g2d.setColor( colourIndex );
-        // move to the location of the sprite
-        g2d.translate( x, y );  
-        g2d.drawRect(x, y, w, h );   
-        // reset the translate
-        g2d.translate( -x, -y );
+       g2d.drawRect(x, y, w, h );   
     }
 
     /**
      * changeConfiguration requests that drawing configuration of
      * the sprite should change.
      */
-    void changeConfiguration() {
+    void changeConfiguration(){
         // skip a colour
        // nextColor();
     }
-
-
 }

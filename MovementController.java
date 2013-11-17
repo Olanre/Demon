@@ -1,3 +1,5 @@
+package Board;
+
 public class MovementController 
 {
 	int newXCoord;
