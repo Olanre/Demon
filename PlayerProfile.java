@@ -1,4 +1,4 @@
-package Board;
+package pkg3716proj.Demon;
 
 /**************************
  * Player Profile
@@ -15,6 +15,7 @@ public class PlayerProfile
 	String pass;
 	int xCoord;
 	int yCoord;
+        private final PlayerSprite icon;
 	
 	public PlayerProfile(String fname,String lName,String username,String pass)
 	{
@@ -24,6 +25,7 @@ public class PlayerProfile
 		this.pass = pass;
 		xCoord = 1;                                 //Change this later
 		yCoord = 1;		                            //Change this later
+                icon = new PlayerSprite( 50, 100, 20, 20);  
 	}
 	
 	public void changeName(String newFName,String newLName)
@@ -41,11 +43,17 @@ public class PlayerProfile
 	public void setXCoord(int newX)
 	{
 		xCoord = newX;
+                icon.move(xCoord, yCoord);
 	}
 	
-	public void setYCoord(int newY)
+	/**
+     *
+     * @param newY
+     */
+    public void setYCoord(int newY)
 	{
 		yCoord = newY;
+                icon.move(xCoord, yCoord);
 	}
 	
 	public int getXCoord()

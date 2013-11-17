@@ -1,13 +1,34 @@
-package Board;
+package pkg3716proj.Demon;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Dimension;
+
+import java.awt.geom.Ellipse2D;
+
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent; 
+
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+
+import java.awt.EventQueue;
+import pkg3716proj.Demon.PlayerProfile;
 
 public class MovementController 
 {
 	int newXCoord;
 	int newYCoord; 
 	PlayerProfile player;
+        private javax.swing.Timer timer;
+        private static final int INTERVAL = 500; // 500 ms
 	
     public MovementController()
     {
+        
     	//this.player = player;
     	//newXCoord = xcoord;
     	//newYCoord = ycoord;
@@ -41,6 +62,8 @@ public class MovementController
     	}
     }
     
+   
+   
     public void moveRight()
     { 
     	//if(player.getXCoord() + 1 >= getHeight())
