@@ -13,7 +13,6 @@ package pkg3716proj.Demon;
  * a display area
  *@author Olanrewaju Okunlola
  */
-import pkg3716proj.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +23,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Font;
 import java.awt.Dimension;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -36,12 +36,16 @@ import javax.swing.BoxLayout;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
-public class Board extends JPanel implements
-   ActionListener{
-    private JButton[] phonepad;
-    private JButton call, endcall, zero; 
+public class Board extends JPanel  implements ActionListener{
+    private static final int INTERVAL = 250;
     private JTextArea display;
     private String digits = "";
+    private int height = 740;
+    private int width = 700;
+    private int framex = 0;
+    private int framey = 0;
+    Tile[] tilepad;
+    private javax.swing.Timer timer;
 
    
     /** Constructor to build PhoneKeyPad object which
@@ -49,53 +53,68 @@ public class Board extends JPanel implements
      */
     public Board(){
         setLayout( new BorderLayout() );
-        JPanel p = new JPanel( new GridLayout(8, 8) );
-        phonepad = new JButton[ 200 ];
-        for( int i = 0 ; i < phonepad.length; i++ ) {
+        //JPanel p = new JPanel( new GridLayout(8, 8) );
+       // p.setPreferredSize(new Dimension(height, width));
+       // phonepad = new JButton[ 200 ];
+         int h = 40;
+        int w = 40;
+        height = 750;
+        width = 700;
+        tilepad = new Tile[200];
+        
+           for( int i = 0 ; i < tilepad.length; i++ ) {
            //String k = String.valueOf(i); 
            //p.add( new JLabel(k));
-           phonepad[i] = new JButton( String.valueOf( i + 1 ));
-           phonepad[i].addActionListener( this );
-           p.add( phonepad[i] );
-        }
+           tilepad[i] = new Tile( framex, framey, w, h);
+            System.out.println("The x coord is: " + framex + "\nThe y coord is: " + framey);
+           if(framex+w >= width){
+               framey = framey + h+1;   
+               framex = 0;
+           }else{
+               
+               framex = framex + w+1;                
+           }
+           
+           
+          
+            
+            
+         }
+         // framex = framex + width;
+       
         
-       // call = new JButton("T");
-        //call.addActionListener( this );
-        //p.add(call);
-        //zero = new JButton("0");
-       // zero.addActionListener( this); 
-       // p.add(zero);
-       // endcall = new JButton("E");
-       // endcall.addActionListener( this );
-        //p.add(endcall);
+        timer = new javax.swing.Timer(INTERVAL, this);
+        timer.start(); 
+         repaint();
         
         display = new JTextArea();
-        add( display, BorderLayout.NORTH );
-        add( p, BorderLayout.CENTER );
+        //add( display, BorderLayout.NORTH );
+        //add( p, BorderLayout.CENTER );
 
    }
-   /** Action preformed method to dictate what to happen
+   
+    @Override
+    protected void paintComponent( Graphics g ) {
+       
+        super.paintComponent( g );
+        Graphics2D g2d = (Graphics2D)g;
+        for( int i = 0 ; i < tilepad.length; i++ ) {
+                tilepad[i].draw(g2d); 
+        }
+    }
+    
+    /** Action preformed method to dictate what to happen
     *when an action is performed
     *@param e which is the ActionEvent
     */
-   public void actionPerformed( ActionEvent e)  {
-        Object o = e.getSource();
-        JButton b = (JButton)o;
-        String item = b.getText();
-
-        if( item.equals("T")){
-            display.setText( "calling" );
-            digits = "";
-        }
-        else if(item.equals("E")){
-            display.setText("end call");
-            digits = "";
-        }
-        else {
-            digits += item;
-            display.setText( digits );
-        }
-    }
+    @Override
+     public void actionPerformed( ActionEvent evt ) {        
+        /*
+         * code to handle animation.
+         */
+         repaint();
+     }
+    
     
    /** Main method which creates instance of class object
     *models the frame and displays it

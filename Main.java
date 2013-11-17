@@ -8,7 +8,6 @@ package pkg3716proj.Demon;
  *
  * @author ooo524
  */
-import pkg3716proj.*;
 import java.awt.FlowLayout;
 import javax.swing.JMenuBar;
 

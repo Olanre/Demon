@@ -8,7 +8,6 @@ package pkg3716proj.Demon;
  *
  * @author Olanrewaju Okunlola
  */
-import pkg3716proj.*;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
