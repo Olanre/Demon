@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Game;
 
 /**
  *
@@ -59,6 +59,11 @@ public class StartMenuGUI extends javax.swing.JFrame {
         });
 
         start.setText("Start");
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +127,11 @@ public class StartMenuGUI extends javax.swing.JFrame {
         
         new CreatePlayerGUI().setVisible(true);
     }//GEN-LAST:event_createAccountActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        new Board.Main().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
