@@ -1,4 +1,3 @@
-package pkg3716proj.Demon;
 
 public enum Direction 
 {
