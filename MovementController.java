@@ -61,34 +61,4 @@ public class MovementController
     	    	//board.redraw
     	}
     }
-    
-   
-   
-    public void moveRight()
-    { 
-    	//if(player.getXCoord() + 1 >= getHeight())
-    	//{
-    	   player.setXCoord(0);
-    	//}   
-    	
-    	//board.redraw
-    }
-    
-    public void moveLeft()
-    { 
-    	
-    }
-    
-    public void moveUp()
-    { 
-    	player.setYCoord(player.getYCoord() + 5);
-    	//board.redraw
-    }
-    
-    public void moveDown()
-    { 
-    	player.setYCoord(player.getYCoord() - 5);
-    	//board.redraw
-    }
-   
 }
