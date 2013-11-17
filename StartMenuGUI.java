@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Game;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -137,6 +137,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+<<<<<<< HEAD
         // 1) will  create instances of username and password.
         // 2) will check to see if criteria is met for username
         // 3) will check if username is in list
@@ -192,6 +193,10 @@ public class StartMenuGUI extends javax.swing.JFrame {
         
         
         
+=======
+        new Board.Main().setVisible(true);
+        this.dispose();
+>>>>>>> ffc823916cf997de2d821e832232a7c174a461e0
     }//GEN-LAST:event_startActionPerformed
 
     /**
