@@ -4,6 +4,14 @@
  */
 package GUI;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nathan
@@ -59,6 +67,11 @@ public class StartMenuGUI extends javax.swing.JFrame {
         });
 
         start.setText("Start");
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +135,64 @@ public class StartMenuGUI extends javax.swing.JFrame {
         
         new CreatePlayerGUI().setVisible(true);
     }//GEN-LAST:event_createAccountActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        // 1) will  create instances of username and password.
+        // 2) will check to see if criteria is met for username
+        // 3) will check if username is in list
+        // 4) will check if password is correct for username
+        // 5) will go to gameboard
+        String uName, pName,line;
+        uName = usernameField.getText(); // 1
+        pName = new String(passwordField.getPassword()); // 1
+        System.out.println("Entered password is: " + pName);
+        if (uName.length()==0) // 2
+        {
+            JOptionPane.showMessageDialog(this, "Missing Username", "Error", 0);
+        }
+        
+        else
+        {
+           try 
+           {
+                BufferedReader br = new BufferedReader(new FileReader("players.txt"));
+                while((line = br.readLine()) != null)
+                {
+                    String[] UandP = line.split(",");
+                    System.out.println("uName is " + UandP[0]);
+                    System.out.println("pName is " + UandP[1]);
+                    if(uName.equals(UandP[0])) // 3
+                    {
+                        if(pName.equals(UandP[1]))// 4
+                        {
+                            // Set up the board and dispose of start menu and close file
+                            System.out.println("We have found a match");
+                            JOptionPane.showMessageDialog(this, "player logged in is :" + UandP[2] +" "+UandP[3], line, 1);
+                            
+                        } 
+                        
+                    }    
+                }
+                   br.close();
+                   JOptionPane.showMessageDialog(this, "Username or Password is wrong ", "Error", 0);
+                   
+            
+            } 
+            catch (FileNotFoundException ex)
+            {    
+               JOptionPane.showMessageDialog(this, "No file", "Error", 0);
+            }   
+            
+            catch (IOException ex) 
+            {
+               Logger.getLogger(StartMenuGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }    
+        
+        
+        
+        
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments

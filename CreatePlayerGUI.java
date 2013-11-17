@@ -184,13 +184,15 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
         // Need to do three things:
         // Check password with confirm password and make sure all blocks have been filled.
+        // Note that creation doesn't check if username is already taken!
         String passText,confirmPass,fName,lName,uName,pInfo;
         passText = new String(PasswordField.getPassword());
         confirmPass = new String(ConfirmPasswordField.getPassword());
         fName = FirstNameField.getText();
         lName = LastNameField.getText();
         uName = UsernameField.getText();
-        pInfo = fName + ", "+ lName + ", "+ uName+ ", " + passText;
+        pInfo = uName + ","+ passText + ","+ fName+ "," + lName;
+        // have a check class 
         if(!(passText.equals(confirmPass) && confirmPass.length() != 0))
         {
                 JOptionPane.showMessageDialog(this, "Passwords don't match", "Error", 0);
@@ -225,7 +227,7 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
         
         // Create a new player profile with the details obtained!
         
-        // Create an instance of the bord class
+     
         
         
        
