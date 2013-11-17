@@ -1,4 +1,3 @@
-
 public class MovementController 
 {
 	int newXCoord;
@@ -13,7 +12,7 @@ public class MovementController
     }
     
     
-    public void checkIfValid()
+    public void validateMove()
     {
     	//TODO
     	//check board to see if move is valid
@@ -22,7 +21,7 @@ public class MovementController
     	
     }
     
-    public void move(int xcoord, int ycoord,PlayerProfile player,Direction d)
+    public void move(PlayerProfile player,Direction d)
     {
     	switch(d)
     	{
