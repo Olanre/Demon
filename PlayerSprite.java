@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Player;
+package pkg3716proj.Demon;
 
 /**
  *
@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 
@@ -29,6 +30,11 @@ public class PlayerSprite extends Board implements Animate {
     private int w,h;
     private Color[] rectColours = {Color.BLUE, Color.CYAN, Color.WHITE};
     private int colourIndex = 0;
+    private static final int INTERVAL = 500; // 500 ms
+    /*
+     * handles updating the animation, remove if not required
+     */
+    private javax.swing.Timer timer;
 
     /**
      * SquaresSprite - build the sprite
@@ -36,10 +42,7 @@ public class PlayerSprite extends Board implements Animate {
      * @param w the width of the sprite
      * @param h the width of the sprite
      */
-     public PlayerSprite(  ) {
-        
-    }
-    
+   
     public PlayerSprite( double x, double y, int w, int h ) {
          this.w =w;
          this.h = h;
@@ -50,6 +53,8 @@ public class PlayerSprite extends Board implements Animate {
          //ring3 = new Ellipse2D.Double( x+10, y+10, w-15, h-15);
          //ring4 = new Ellipse2D.Double( x+15, y+15, w-20, h-20);
          repaint();
+         timer = new javax.swing.Timer(INTERVAL, this);
+           timer.start(); 
     }
 
     /**
@@ -105,5 +110,7 @@ public class PlayerSprite extends Board implements Animate {
         
         
     }
+    
+     public void actionPerformed( ActionEvent evt ) {repaint();}
 }
 
