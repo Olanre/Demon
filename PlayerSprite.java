@@ -11,13 +11,15 @@ package Player;
 import Board.Animate;
 import Board.Animate;
 import Board.Animate;
+import Board.Board;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
-public class PlayerSprite implements Animate {
+public class PlayerSprite extends Board implements Animate {
     private Ellipse2D ring1;
     private Ellipse2D ring2;
     private Ellipse2D ring3;
@@ -47,6 +49,7 @@ public class PlayerSprite implements Animate {
          ring2 = new Ellipse2D.Double( x+5, y+5, w-10, h-10);
          //ring3 = new Ellipse2D.Double( x+10, y+10, w-15, h-15);
          //ring4 = new Ellipse2D.Double( x+15, y+15, w-20, h-20);
+         repaint();
     }
 
     /**
@@ -67,8 +70,11 @@ public class PlayerSprite implements Animate {
      *
      * @param g2d the drawing object
      */
-    void draw(Graphics2D g2d){
+    @Override
+    public void paintComponent( Graphics g ) {
         
+        super.paintComponent( g );
+        Graphics2D g2d = (Graphics2D)g;
         // move to the location of the sprite
         ring1 = new Ellipse2D.Double( x, y, w, h);
         ring2 = new Ellipse2D.Double( x+5, y+5, w-10, h-10);
@@ -95,6 +101,7 @@ public class PlayerSprite implements Animate {
         this.x = x;
         this.y = y; 
         changeConfiguration();
+        repaint();
         
         
     }
