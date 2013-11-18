@@ -24,7 +24,8 @@ public class PlayerSprite implements Animate {
     private Ellipse2D ring4;
     private double x;
     private double y;
-    private Color[] rectColours = {Color.BLUE, Color.RED, Color.YELLOW};
+    private int w,h;
+    private Color[] rectColours = {Color.BLUE, Color.CYAN, Color.WHITE};
     private int colourIndex = 0;
 
     /**
@@ -38,13 +39,14 @@ public class PlayerSprite implements Animate {
     }
     
     public PlayerSprite( double x, double y, int w, int h ) {
-         
+         this.w =w;
+         this.h = h;
          this.x = x;
          this.y = y; 
          ring1 = new Ellipse2D.Double( x, y, w, h);
          ring2 = new Ellipse2D.Double( x+5, y+5, w-10, h-10);
-         ring3 = new Ellipse2D.Double( x+10, y+10, w-15, h-15);
-         ring4 = new Ellipse2D.Double( x+15, y+15, w-20, h-20);
+         //ring3 = new Ellipse2D.Double( x+10, y+10, w-15, h-15);
+         //ring4 = new Ellipse2D.Double( x+15, y+15, w-20, h-20);
     }
 
     /**
@@ -68,15 +70,13 @@ public class PlayerSprite implements Animate {
     void draw(Graphics2D g2d){
         
         // move to the location of the sprite
-        
+        ring1 = new Ellipse2D.Double( x, y, w, h);
+        ring2 = new Ellipse2D.Double( x+5, y+5, w-10, h-10);
        g2d.setColor(nextColor() );
         g2d.fill( ring1 );
         g2d.setColor(nextColor() );
-       g2d.draw( ring2 );
-       g2d.setColor(nextColor() );
-        g2d.fill( ring3 );
-        g2d.setColor(nextColor() );
-        g2d.draw( ring4 );
+       g2d.fill( ring2 );
+       
         // reset the translate
        // g2d.translate( -tx, -ty );
     }
@@ -95,6 +95,8 @@ public class PlayerSprite implements Animate {
         this.x = x;
         this.y = y; 
         changeConfiguration();
+        
+        
     }
 }
 
