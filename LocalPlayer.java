@@ -10,9 +10,9 @@ import Player.*;
  * @author cs
  */
 public class LocalPlayer {
-    public PlayerProfile current_Player;
+    public static PlayerProfile current_Player;
     
-    public LocalPlayer(PlayerProfile player){
-        current_Player = player;
+    public static void setLocalPlayer(String userName,String pass, String fName, String lName){
+        current_Player = new PlayerProfile(userName, pass, fName, lName);
     }
 }

@@ -1,4 +1,4 @@
-//package pkg3716proj.Demon;
+package Board;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,16 +16,25 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 import java.awt.EventQueue;
-//import pkg3716proj.Demon.PlayerProfile;
+import Player.*;
 
 public class MovementController 
 {
 	int newXCoord;
 	int newYCoord; 
 	PlayerProfile player;
-    private javax.swing.Timer timer;
-    private static final int INTERVAL = 500; // 500 ms
+        private javax.swing.Timer timer;
+        private static final int INTERVAL = 500; // 500 ms
 	
+    public MovementController()
+    {
+        
+    	//this.player = player;
+    	//newXCoord = xcoord;
+    	//newYCoord = ycoord;
+    }
+    
+    
     public void validateMove()
     {
     	//TODO
@@ -41,21 +50,15 @@ public class MovementController
     	{
     	    case RIGHT:
     		   player.setXCoord(player.getXCoord() + 5);
-    		   break;
     	    case LEFT:
     	       player.setXCoord(player.getXCoord() - 5);
     	       //board.redraw
-    	       break;
     	    case UP:
     	    	player.setYCoord(player.getYCoord() + 5);
     	    	//board.redraw
-    	    	break;
     	    case DOWN:	
     	    	player.setYCoord(player.getYCoord() - 5);
     	    	//board.redraw
-    	    	break;
-    	    default:
-    	    	System.out.println("Default");
     	}
     }
 }

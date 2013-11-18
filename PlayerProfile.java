@@ -1,3 +1,5 @@
+package Player;
+import Board.*;
 /**************************
  * Player Profile
  * Project Demon
@@ -13,27 +15,23 @@ public class PlayerProfile
 	String pass;
 	int xCoord;
 	int yCoord;
-	int[] cor = {0,0};
-	private final PlayerSprite icon;
+        private final PlayerSprite icon;
 	
-	public PlayerProfile(String fname,String lName,String username,String pass)
+	public PlayerProfile(String username, String pass, String fname, String lName)
 	{
-		this.fName = fname;       //first name
-		this.lName = lName;       //last name
-		this.username = username; //username
-		this.pass = pass;         //password
-		icon = new PlayerSprite( 50, 100, 20, 20);
+		this.fName = fname;
+		this.lName = lName;
+		this.username = username;
+		this.pass = pass;
+		xCoord = 1;                                 //Change this later
+		yCoord = 1;		                            //Change this later
+                icon = new PlayerSprite( 50, 100, 20, 20);  
 	}
 	
 	public void changeName(String newFName,String newLName)
 	{
 		fName = newFName;
 		lName = newLName;
-	}
-	
-	public void changeUsername(String newUsername)
-	{
-		username = newUsername;
 	}
 	
 	
@@ -45,18 +43,22 @@ public class PlayerProfile
 	public void setXCoord(int newX)
 	{
 		xCoord = newX;
-		cor[0] = newX;
+                icon.move(xCoord, yCoord);
 	}
 	
-	public void setYCoord(int newY)
+	/**
+     *
+     * @param newY
+     */
+    public void setYCoord(int newY)
 	{
 		yCoord = newY;
-		cor[1] = newY;
+                icon.move(xCoord, yCoord);
 	}
 	
 	public int getXCoord()
 	{
-		return cor[0];
+		return xCoord;
 	}
 	
 	public int getYCoord()
@@ -64,22 +66,19 @@ public class PlayerProfile
 		return yCoord;
 	}
 	
-	public void  setCoords(int x, int y)       //sets both coordinates at the same time
-	{
-		xCoord = x;
-		cor[0] = xCoord;
-		yCoord = y;
-		cor[1] = yCoord;
-	}
-	
 	public  int[] getCoords()
 	{
-		return cor;
+		int[] co = {xCoord,yCoord};
+		return co;
 	}
-	
 	/***
 	 * Shell methods
 	 */
 	 public void money(){}
 	 public void happiness(){}
+         
+         public String getUserName(){
+             return username;
+         }
+	
 }

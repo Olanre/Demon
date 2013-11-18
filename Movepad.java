@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg3716proj.Demon;
+package Board;
 
 /**
  *
@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 import java.awt.EventQueue;
+
+import Player.*;
 
 public class Movepad extends JPanel
     implements  KeyListener 

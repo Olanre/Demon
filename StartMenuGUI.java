@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Game;
 
 import java.io.BufferedReader;
@@ -137,7 +133,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
-<<<<<<< HEAD
+
         // 1) will  create instances of username and password.
         // 2) will check to see if criteria is met for username
         // 3) will check if username is in list
@@ -169,9 +165,11 @@ public class StartMenuGUI extends javax.swing.JFrame {
                             // Set up the board and dispose of start menu and close file
                             System.out.println("We have found a match");
                             JOptionPane.showMessageDialog(this, "player logged in is :" + UandP[2] +" "+UandP[3], line, 1);
-                            
-                        } 
-                        
+                            LocalPlayer.setLocalPlayer(UandP[0],UandP[1],UandP[2],UandP[3]);
+                            new Board.Main().setVisible(true);                            
+                            this.dispose();
+                            return;
+                        }                         
                     }    
                 }
                    br.close();
@@ -189,14 +187,10 @@ public class StartMenuGUI extends javax.swing.JFrame {
                Logger.getLogger(StartMenuGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }    
-        
-        
-        
-        
-=======
+
         new Board.Main().setVisible(true);
         this.dispose();
->>>>>>> ffc823916cf997de2d821e832232a7c174a461e0
+
     }//GEN-LAST:event_startActionPerformed
 
     /**
