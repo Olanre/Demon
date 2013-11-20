@@ -13,8 +13,8 @@ public class PlayerProfile
 	String lName;
 	String username;
 	String pass;
-	int xCoord = 0;
-	int yCoord = 0;
+	int xCoord = 100;
+	int yCoord = 376;
         int[] co = {xCoord,yCoord};
         public final PlayerSprite icon;
 	
@@ -23,8 +23,8 @@ public class PlayerProfile
 		this.fName = fname;
 		this.lName = lName;
 		this.username = username;
-		this.pass = pass;		                            //Change this later
-                icon = new PlayerSprite( 50, 100, 20, 20);  
+		this.pass = pass;		                            
+                icon = new PlayerSprite( xCoord, yCoord, 20, 20);  
                 
         }
 	

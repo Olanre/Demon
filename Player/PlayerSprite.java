@@ -9,26 +9,19 @@ package Player;
  * @author ooo524
  */
 import Board.Animate;
-import Board.Animate;
-import Board.Animate;
-import Board.Board;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 
 public class PlayerSprite extends JComponent implements Animate {
     private Ellipse2D ring1;
     private Ellipse2D ring2;
-    private Ellipse2D ring3;
-    private Ellipse2D ring4;
-    private double x;
-    private double y;
+    private int x;
+    private int y;
     private int w,h;
-    private Color[] rectColours = {Color.BLUE, Color.CYAN, Color.WHITE};
+    private Color[] rectColours = {Color.BLUE};
     private int colourIndex = 0;
 
     /**
@@ -38,8 +31,8 @@ public class PlayerSprite extends JComponent implements Animate {
      * @param h the width of the sprite
      */
     
-    public PlayerSprite( double x, double y, int w, int h ) {
-         this.w =w;
+    public PlayerSprite( int x, int y, int w, int h ) {
+         this.w = w;
          this.h = h;
          this.x = x;
          this.y = y; 
@@ -69,17 +62,17 @@ public class PlayerSprite extends JComponent implements Animate {
      */
     @Override
     public void paintComponent( Graphics g ) {
-        System.out.println("I have made the sprite");
+        
         super.paintComponent( g );
         Graphics2D g2d = (Graphics2D)g;
         // move to the location of the sprite
         ring1 = new Ellipse2D.Double( x, y, w, h);
         ring2 = new Ellipse2D.Double( x+5, y+5, w-10, h-10);
-       g2d.setColor(nextColor() );
+        g2d.setColor(Color.BLACK);
         g2d.fill( ring1 );
-        g2d.setColor(nextColor() );
-       g2d.fill( ring2 );
-       
+        g2d.setColor(Color.YELLOW);
+        g2d.fill( ring2 );
+        
         // reset the translate
        // g2d.translate( -tx, -ty );
     }
@@ -94,7 +87,8 @@ public class PlayerSprite extends JComponent implements Animate {
         nextColor();
     }
    
-     public void move( double x, double y){
+    @Override
+     public void move( int x, int y){
         this.x = x;
         this.y = y; 
         changeConfiguration();

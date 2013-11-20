@@ -50,6 +50,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
 
         password.setText("Password :");
 
+        usernameField.setText("test");
         usernameField.setName(""); // NOI18N
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,11 +58,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
             }
         });
 
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
+        passwordField.setText("test");
 
         createAccount.setText("Create Account");
         createAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -203,10 +200,6 @@ public class StartMenuGUI extends javax.swing.JFrame {
        // this.dispose();
 
     }//GEN-LAST:event_startActionPerformed
-
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
