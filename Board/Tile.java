@@ -29,7 +29,7 @@ public class Tile  implements Drawable{
      *
      * @return the next colour
      */
-    private void setColor(Color new_color){
+    public void setColor(Color new_color){
         this.colourIndex = new_color;
     }
 
