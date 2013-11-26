@@ -8,32 +8,48 @@ package Board;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import Player.PlayerSprite;
 import Game.LocalPlayer;
+import Game.StartMenuGUI;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-import Player.PlayerSprite;
+import Player.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author cs
  */
-class Territory extends JPanel implements ActionListener{
+public class Territory extends JPanel implements ActionListener{
     
     String name;
     TerritoryType type;
     Color the_color;
     int ID;
     int[] borders;
+    //for the territory
     int height;
     int width;
+    //dimension for the specific tiles
+    int h = 40;
+    int w = 40;
+    //number of tiles that can fit on a row
+    int x_tileno;
+    //number tiles that can fit in a column
+    int y_tileno;
     Tile[][] tilepad; 
     private int framex = 0;
     private int framey = 0;
      private static final int INTERVAL = 250;
+     TerritoryMovement actual_switch = new TerritoryMovement();
+     
+     ArrayList<PlayerProfile> on_this = new ArrayList<PlayerProfile>(); 
       private javax.swing.Timer timer;
-      int h = 40;
-      int w = 40;
+              private static JFrame main_Frame = new JFrame();
+              private JButton switch_terri;
+       
+     
     /** Constructor to create the territory with a given parameters
      * 
      * @param name is the territory name
@@ -43,43 +59,98 @@ class Territory extends JPanel implements ActionListener{
      * @param height is the height of the territory to be displayed
      * @param width is the width of the territory to be displayed
      */
-    public Territory(String name, int ID, TerritoryType type, Color color, int[] border,int height,int width){
-        this.framex = width;
-        this.framey = height;
+    public Territory(String name, int ID, TerritoryType type, Color color, int[] border,int width ,int height){
+         
+          setLayout( new BorderLayout());
+          
+        this.width = width;
+        this.height = height;
         this.name = name;
         this.type = type;
         this.the_color = color;
         this.borders = border; 
         this.ID = ID;
-        tilepad = new Tile[width][height];    
-        timer = new javax.swing.Timer(INTERVAL, (ActionListener) this);
         
+        //display button on the Territory panel to switch territories
+        // p = new JPanel( );
+        //switch_terri = new JButton("Click to switch to bordering territory");
+        //switch_terri.addActionListener( actual_switch);
+        //p.add(switch_terri);
+        //add( p, BorderLayout.EAST);
+        timer = new javax.swing.Timer(INTERVAL, (ActionListener) this);
+        x_tileno = width/w;
+        y_tileno = height/h;
+        tilepad = new Tile[x_tileno][y_tileno]; 
+         repaint();
+        //System.out.println("The maximum rows is" + x_tileno + "The maximum column is" + y_tileno );
         timer.start();
+        //add to board
+         //add(LocalPlayer.current_Player.icon);
+         //addPlayer(LocalPlayer.current_Player);
+          //LocalPlayer.current_Player.icon.repaint();
+                   // MovementCentre move = new MovementCentre(LocalPlayer.current_Player);
+                   //move.setFocusable(true);
+                   // add(move);
+       
     }
     /** Paint method takes in parameter
      * 
      * @param g which is a graphics object, it is converted to a 2D graphics object for painting
      */
     @Override
-    public void paintComponent( Graphics g ) {       
+    public void paintComponent( Graphics g ) {    
+        framex = 0;
+        framey = 0;
+        
         super.paintComponent( g );
         Graphics2D g2d = (Graphics2D)g;
         //draw the tiles pad which is now a 2D array
-        for( int i = 0 ; i < height; i++ ) {
-            for(int j = 0; j< width; j++){
+        for( int j = 0 ; j < y_tileno-1; j++ ) {
+            for(int i = 0; i< x_tileno-1; i++){
+                //System.out.println(i + " " + j);
                 tilepad[i][j] = new Tile( framex, framey, w, h);
                 tilepad[i][j].setColor(the_color);
-                tilepad[i][j].draw(g2d); 
+                //tilepad[i][j].draw(g2d);
+                
+                Rectangle rect = new Rectangle(framex, framey, w, h);
+                g2d.setColor(the_color);
+                g2d.fill(rect);
+                // System.out.println("Now painting");
+                
                 //incrmeent x position by width of the tile drawn
                 framex = framex + w+1;
             }
             //increment height position by one
             framey = framey + h+1;
-        }        
+            framex = 0;
+        }     
+       
     }
-    /**all the getter methods are here
+    //add a player to this board. 
+   public void addPlayer(PlayerProfile player){
+       on_this.add(player);
+       
+   }
+    //add a player to this board. 
+   public void removePlayer(PlayerProfile player){
+       on_this.remove(player);
+       
+   }
+   //method the show the map 
+   public void ShowMap(){
+       Map map =  new Map();
+       
+   }
+   
+   /**all the getter methods are here
      * */ 
    
+   //return the list on players currently on this board.
+   public ArrayList<PlayerProfile> getPlayers(){
+       return on_this;
+       
+   }
+   //get Boundary of this territory, the width and height
     public int[] getBoundary(){
         int[] arr = {width, height}; 
         return arr; 
@@ -103,11 +174,14 @@ class Territory extends JPanel implements ActionListener{
            return this.ID; 
      }
      public int getTerritoryWidth(){
-         return framex;
+          
+         return width;
+         
      }
      
      public int getTerritoryHeight(){
-         return framey; 
+        
+         return height; 
      }
      
      //setter methods
@@ -132,5 +206,41 @@ class Territory extends JPanel implements ActionListener{
          this.name = new_name;
      }
     @Override
-    public void actionPerformed( ActionEvent evt ) {/**Code to handle animation*/}    
+    public void actionPerformed( ActionEvent evt ) {
+     
+    }    
+    
+    class Show implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                System.out.println("Button clicked");
+             
+                
+                //this.dispose();
+            }
+         }
+    
+   /** public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         *
+        
+        //</editor-fold>
+        //territory 4
+         int[] arr = {2,5};
+        Territory Nomad = new Territory("Roaming Region", 1, TerritoryType.Nomad, Color.MAGENTA, arr ,600, 800);
+            JPanel p = new JPanel(new BorderLayout());
+            p.add(Nomad); 
+            main_Frame.add(p); 
+            main_Frame.setSize( 870, 700 ); 
+           main_Frame.setTitle( "Demon" );
+          main_Frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        main_Frame.setVisible( true );
+        //MovementCentre move = new MovementCentre(LocalPlayer.current_Player);
+       // move.setFocusable(true);
+        
+        /* Create and display the form */ 
+ 
 }

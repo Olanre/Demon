@@ -17,6 +17,7 @@ public class PlayerProfile
 	int yCoord = 376;
         int[] co = {xCoord,yCoord};
         public final PlayerSprite icon;
+        Territory terra;
 	
 	public PlayerProfile(String username, String pass, String fname, String lName)
 	{
@@ -39,7 +40,13 @@ public class PlayerProfile
 	{
 		pass = newPass;
 	}
-
+        public void setTerritory( Territory territory){
+            this.terra = territory;
+        }
+        
+        public Territory getTerritory(){
+            return this.terra;
+        }
 	public void setXCoord(int newX)
 	{
 		co[0] = xCoord = newX;

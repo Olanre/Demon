@@ -15,4 +15,7 @@ public class LocalPlayer {
     public static void setLocalPlayer(PlayerProfile login_Player){
         current_Player = login_Player;        
     }
+    public static PlayerProfile getLocalPlayer(){
+        return current_Player;
+    }
 }
