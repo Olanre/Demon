@@ -19,7 +19,7 @@ import java.util.Random;
 public class TerritoryMovement extends JComponent implements MouseListener, ActionListener {
     Territory terra; 
     Map map_terra; 
-    public final Board board = new Board() ;
+    public Board board;
     private Territory territory;
     JFrame frame = new JFrame();
     private JButton switch_terri;
@@ -43,19 +43,26 @@ public class TerritoryMovement extends JComponent implements MouseListener, Acti
                          //get the current player's profile
                          PlayerProfile the_player; 
                           the_player = LocalPlayer.getLocalPlayer();
+                          System.out.println(the_player.getUserName());
                           //get the territory the current player is set it
                           Territory old = the_player.getTerritory();
-                          //remove the player from the old territory's list of references
-                          old.removePlayer(the_player);
+                          if(old != null){
+                            //remove the player from the old territory's list of references
+                             old.removePlayer(the_player);
+                          }
                           //add the player reference to the list of players in the new territory
-                         territory.addPlayer(null);
-                         updateBoard(territory);
-                      //Frame[] frames = JFrame.getFrames();
-                      //for(int i = 0; i < frames.length; i ++){
-                          //frames[i].dispose();
-                          //frames[i].removeAll();
-                         // frames[i].validate();
-                     // }
+                         
+                          System.out.println("The player " + the_player.getUserName() + " has been moved to " + territory.getName());
+                         territory.addPlayer(the_player);
+                         
+                      Frame[] frames = JFrame.getFrames();
+                      for(int i = 0; i < frames.length; i ++){
+                          frames[i].dispose();
+                          frames[i].removeAll();
+                         frames[i].validate();
+                     }
+                       board = new Board() ;
+                      updateBoard(territory);
                        //Board.placeTerritory( territory); 
                         
                      //add(LocalPlayer.current_Player.icon);

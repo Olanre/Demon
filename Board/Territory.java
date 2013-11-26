@@ -84,6 +84,7 @@ public class Territory extends JPanel implements ActionListener{
          repaint();
         //System.out.println("The maximum rows is" + x_tileno + "The maximum column is" + y_tileno );
         timer.start();
+        
         //add to board
          //add(LocalPlayer.current_Player.icon);
          //addPlayer(LocalPlayer.current_Player);
@@ -120,6 +121,9 @@ public class Territory extends JPanel implements ActionListener{
                 //incrmeent x position by width of the tile drawn
                 framex = framex + w+1;
             }
+            for(int i = 0; i < on_this.size(); i++){
+                    on_this.get(i).icon.repaint();
+             }
             //increment height position by one
             framey = framey + h+1;
             framex = 0;

@@ -12,7 +12,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class Board extends JPanel implements ActionListener{
+public class Board extends JFrame implements ActionListener{
     private static final int INTERVAL = 250;
     private int height = 800;
     private int width = 800;
@@ -32,8 +32,9 @@ public class Board extends JPanel implements ActionListener{
      */
     public Board(){
         
-        this.frame = frame;
+        frame = new JFrame();
         //frame.add(map);
+        
         frame.setSize(  250,  200 ); 
         frame.setJMenuBar(new Menu().getMenuBar());
         frame.setTitle( "main game board" );
@@ -92,6 +93,7 @@ public class Board extends JPanel implements ActionListener{
     }
     
     public void placeTerritory( Territory terra){
+        
         this.territory = terra;
         p.removeAll();
         p.revalidate();
@@ -106,9 +108,13 @@ public class Board extends JPanel implements ActionListener{
        // c.fill = GridBagConstraints.VERTICAL;
         p.add(map);
         p.revalidate();  
-        frame.setSize( territory.getTerritoryWidth() + 250, territory.getTerritoryHeight() + 200 ); 
-        frame.setTitle( territory.getName() );
+        frame = new JFrame();
+         this.frame = frame;
+         frame.add(territory); 
         frame.add( p, BorderLayout.EAST);
+        frame.setSize( territory.getTerritoryWidth() + 270, territory.getTerritoryHeight() + 100 ); 
+        frame.setTitle( territory.getName() );
+        
         territory.repaint();  
         frame.setVisible( true );
         territory.repaint();
@@ -116,8 +122,8 @@ public class Board extends JPanel implements ActionListener{
         
     }
     
-     @Override
-    public void paintComponent( Graphics g ) {    
+    //@Override
+    public void reshow (){   
        territory.repaint();
         
     }
