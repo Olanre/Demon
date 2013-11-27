@@ -17,7 +17,6 @@ import java.util.Random;
 
  
 public class TerritoryMovement extends JComponent implements MouseListener, ActionListener {
-    Territory terra; 
     Map map_terra; 
     public Board board;
     private Territory territory;
@@ -45,7 +44,14 @@ public class TerritoryMovement extends JComponent implements MouseListener, Acti
                         the_player = LocalPlayer.getLocalPlayer();
                         //get the territory the current player is set it
                         Territory old = the_player.getTerritory();
+                        
+                        //if the player had not yet moved to a territory don't try to print the old one
                         if(old != null){
+                            //don't allow movement within the same territory
+                            if(territory.getName().equals(old.getName())){
+                                System.out.println("You cannot move within the same territory like this");
+                                return;
+                            }
                           //remove the player from the old territory's list of references
                            old.removePlayer(the_player);
                            System.out.println("The player " + the_player.getUserName() + " has been moved from " + old.getName() + " to " + territory.getName());
@@ -62,6 +68,17 @@ public class TerritoryMovement extends JComponent implements MouseListener, Acti
                          frames[i].validate();
                      }
                        board = new Board() ;
+                       //place the player on a random set of coordinates
+                       Random yrandom = new Random();
+                       //new y coordinate
+                       int new_y;
+                       new_y = yrandom.nextInt(territory.getTerritoryHeight());
+                       the_player.setYCoord(new_y);
+                       //new x coordinate
+                       int new_x;
+                        Random xrandom = new Random();
+                       new_x = xrandom.nextInt(territory.getTerritoryWidth());
+                       the_player.setXCoord(new_x);
                       updateBoard(territory);
                        //Board.placeTerritory( territory); 
                         

@@ -9,9 +9,10 @@ import Board.*;
  */
 public class PlayerProfile 
 {
-	String fName;
-	String lName;
-	String username;
+        // we need these to be public as we use them else where
+	public String fName;
+	public String lName;
+	public String username;
 	String pass;
 	int xCoord = 100;
 	int yCoord = 100;

@@ -108,7 +108,7 @@ public class Board extends JFrame implements ActionListener{
          territory.repaint();
          frame.add(territory); 
         frame.add( p, BorderLayout.EAST);
-        frame.setSize( territory.getTerritoryWidth() + 270, territory.getTerritoryHeight() + 100 ); 
+        frame.setSize( territory.getTerritoryWidth() + 320, territory.getTerritoryHeight() + 100 ); 
         frame.setTitle( territory.getName() );
          
         frame.setVisible( true );

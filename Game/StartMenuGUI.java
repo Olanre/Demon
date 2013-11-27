@@ -173,7 +173,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
                             
                             PlayerProfile login_player = new PlayerProfile(UandP[0],UandP[1],UandP[2],UandP[3]);
                             LocalPlayer.setLocalPlayer(login_player);
-                            GameMain.active.addPlayer(login_player);
+                            //GameMain.active.addPlayer(login_player);
                             new Board.Main().setVisible(true);                            
                             this.dispose();
                             return;

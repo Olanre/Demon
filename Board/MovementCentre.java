@@ -18,6 +18,7 @@ public class MovementCentre extends JComponent implements KeyListener {
     int newYCoord; 
     PlayerProfile player;
     Direction directer;
+    Territory terra;
     
     public MovementCentre(PlayerProfile player)
     {
@@ -32,7 +33,7 @@ public class MovementCentre extends JComponent implements KeyListener {
     
     @Override
     public void keyReleased(KeyEvent ke) {
-        System.out.println( "released: " + ke.getKeyChar() );
+        //System.out.println( "released: " + ke.getKeyChar() );
     }
     
   // This method can be used to detect player collisons 
@@ -42,11 +43,12 @@ public class MovementCentre extends JComponent implements KeyListener {
     
     @Override
     public void keyPressed(KeyEvent ke) {
-        System.out.println( "pressed: " + ke.getKeyChar() );
-        
+       // System.out.println( "pressed: " + ke.getKeyChar() );
+        terra = player.getTerritory();
         System.out.println(player.getXCoord());
         System.out.println(player.getYCoord());
-        
+        System.out.println("The territory width is at: " + terra.getTerritoryWidth());
+        System.out.println("The territory height is at: " + terra.getTerritoryHeight());
         switch( ke.getKeyChar() ) {
                 case 'w':
                    if(player.getYCoord() -15 < 0)
@@ -73,9 +75,9 @@ public class MovementCentre extends JComponent implements KeyListener {
                 break;
                     
                 case 'd':
-                   if(player.getXCoord() + 15 > 800)
+                   if(player.getXCoord() + 15 > terra.getTerritoryWidth())
                    {
-                       player.setXCoord(800);
+                       player.setXCoord(terra.getTerritoryWidth()-10);
                        System.out.println("Out of bounds move: RIGHT");
                    }
                    else
@@ -85,9 +87,9 @@ public class MovementCentre extends JComponent implements KeyListener {
                 break;
                     
                 case 's':
-                   if(player.getYCoord() + 15 > 600)
+                   if(player.getYCoord() + 15 > terra.getTerritoryHeight())
                    {
-                      player.setYCoord(595);
+                      player.setYCoord(terra.getTerritoryHeight()-10);
                       System.out.println("Out of bounds move: DOWN");
                    }
                    else

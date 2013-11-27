@@ -78,8 +78,8 @@ public class Territory extends JPanel implements ActionListener{
         //p.add(switch_terri);
         //add( p, BorderLayout.EAST);
         timer = new javax.swing.Timer(INTERVAL, (ActionListener) this);
-        x_tileno = width/w;
-        y_tileno = height/h;
+        x_tileno = width/w + 1;
+        y_tileno = height/h + 1;
         tilepad = new Tile[x_tileno][y_tileno]; 
          repaint();
         //System.out.println("The maximum rows is" + x_tileno + "The maximum column is" + y_tileno );
