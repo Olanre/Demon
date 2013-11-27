@@ -14,7 +14,7 @@ public class PlayerProfile
 	String username;
 	String pass;
 	int xCoord = 100;
-	int yCoord = 376;
+	int yCoord = 100;
         int[] co = {xCoord,yCoord};
         public final PlayerSprite icon;
         Territory terra;

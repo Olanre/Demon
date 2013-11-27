@@ -122,7 +122,13 @@ public class Territory extends JPanel implements ActionListener{
                 framex = framex + w+1;
             }
             for(int i = 0; i < on_this.size(); i++){
+                    MovementCentre move = new MovementCentre(on_this.get(i));
+                    move.setFocusable(true);
+                    add(move); 
+                    add(on_this.get(i).icon);
                     on_this.get(i).icon.repaint();
+                  
+                    
              }
             //increment height position by one
             framey = framey + h+1;
@@ -133,6 +139,10 @@ public class Territory extends JPanel implements ActionListener{
     //add a player to this board. 
    public void addPlayer(PlayerProfile player){
        on_this.add(player);
+       for(int i = 0; i < on_this.size(); i++){
+                    System.out.println(on_this.get(i).getUserName());
+                    
+        }
        
    }
     //add a player to this board. 

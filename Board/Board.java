@@ -34,12 +34,7 @@ public class Board extends JFrame implements ActionListener{
         
         frame = new JFrame();
         //frame.add(map);
-        
-        frame.setSize(  250,  200 ); 
-        frame.setJMenuBar(new Menu().getMenuBar());
-        frame.setTitle( "main game board" );
-        frame.setDefaultCloseOperation( frame.DO_NOTHING_ON_CLOSE );
-        frame.setVisible( true );
+
              
     }
     public Board(Territory territory){
@@ -110,15 +105,15 @@ public class Board extends JFrame implements ActionListener{
         p.revalidate();  
         frame = new JFrame();
          this.frame = frame;
+         territory.repaint();
          frame.add(territory); 
         frame.add( p, BorderLayout.EAST);
         frame.setSize( territory.getTerritoryWidth() + 270, territory.getTerritoryHeight() + 100 ); 
         frame.setTitle( territory.getName() );
-        
-        territory.repaint();  
+         
         frame.setVisible( true );
         territory.repaint();
-        
+               
         
     }
     
@@ -131,6 +126,7 @@ public class Board extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         System.out.println("Closing the frame yo");
         this.frame.dispose();
+        System.exit(10);
 
     }
 }

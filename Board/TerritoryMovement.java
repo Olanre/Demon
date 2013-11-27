@@ -39,22 +39,22 @@ public class TerritoryMovement extends JComponent implements MouseListener, Acti
                   if(  map_terra.insideTerritory(mouseEvent.getX(), mouseEvent.getY())){
                         removeAll();//or remove(JComponent)
                         
-                         territory = map_terra.getTerritory(mouseEvent.getX(), mouseEvent.getY());
-                         //get the current player's profile
-                         PlayerProfile the_player; 
-                          the_player = LocalPlayer.getLocalPlayer();
-                          System.out.println(the_player.getUserName());
-                          //get the territory the current player is set it
-                          Territory old = the_player.getTerritory();
-                          if(old != null){
-                            //remove the player from the old territory's list of references
-                             old.removePlayer(the_player);
-                          }
-                          //add the player reference to the list of players in the new territory
-                         
-                          System.out.println("The player " + the_player.getUserName() + " has been moved to " + territory.getName());
-                         territory.addPlayer(the_player);
-                         
+                        territory = map_terra.getTerritory(mouseEvent.getX(), mouseEvent.getY());
+                        //get the current player's profile
+                        PlayerProfile the_player; 
+                        the_player = LocalPlayer.getLocalPlayer();
+                        //get the territory the current player is set it
+                        Territory old = the_player.getTerritory();
+                        if(old != null){
+                          //remove the player from the old territory's list of references
+                           old.removePlayer(the_player);
+                           System.out.println("The player " + the_player.getUserName() + " has been moved from " + old.getName() + " to " + territory.getName());
+                        }else{
+                            //add the player reference to the list of players in the new territory
+                            System.out.println("The player " + the_player.getUserName()  + " to " + territory.getName());
+                        }
+                       territory.addPlayer(the_player);
+                       the_player.setTerritory(territory);
                       Frame[] frames = JFrame.getFrames();
                       for(int i = 0; i < frames.length; i ++){
                           frames[i].dispose();
