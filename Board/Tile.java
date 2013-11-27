@@ -29,7 +29,7 @@ public class Tile  implements Drawable{
      *
      * @return the next colour
      */
-    private void setColor(Color new_color){
+    public void setColor(Color new_color){
         this.colourIndex = new_color;
     }
 
@@ -42,7 +42,7 @@ public class Tile  implements Drawable{
     @Override
     public void draw(Graphics2D g2d){
        g2d.setColor( colourIndex );
-       g2d.drawRect(x, y, w, h );   
+       g2d.fillRect(x, y, w, h );   
     }
 
     /**

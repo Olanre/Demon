@@ -9,22 +9,24 @@ import Board.*;
  */
 public class PlayerProfile 
 {
-	String fName;
-	String lName;
-	String username;
+        // we need these to be public as we use them else where
+	public String fName;
+	public String lName;
+	public String username;
 	String pass;
-	int xCoord = 0;
-	int yCoord = 0;
+	int xCoord = 100;
+	int yCoord = 100;
         int[] co = {xCoord,yCoord};
         public final PlayerSprite icon;
+        Territory terra;
 	
 	public PlayerProfile(String username, String pass, String fname, String lName)
 	{
 		this.fName = fname;
 		this.lName = lName;
 		this.username = username;
-		this.pass = pass;		                            //Change this later
-                icon = new PlayerSprite( 50, 100, 20, 20);  
+		this.pass = pass;		                            
+                icon = new PlayerSprite( xCoord, yCoord, 20, 20);  
                 
         }
 	
@@ -39,7 +41,13 @@ public class PlayerProfile
 	{
 		pass = newPass;
 	}
-
+        public void setTerritory( Territory territory){
+            this.terra = territory;
+        }
+        
+        public Territory getTerritory(){
+            return this.terra;
+        }
 	public void setXCoord(int newX)
 	{
 		co[0] = xCoord = newX;

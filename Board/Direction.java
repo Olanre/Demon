@@ -1,8 +1,9 @@
-package Board;
-/**
- * This is our enumerated types for Direction for class MovementController
- * @author nathan
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
+package Board;
+
 public enum Direction 
 {
     RIGHT,LEFT,UP,DOWN

@@ -42,6 +42,7 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
         UsernameField = new javax.swing.JTextField();
         PasswordField = new javax.swing.JPasswordField();
         ConfirmPasswordField = new javax.swing.JPasswordField();
+<<<<<<< HEAD
         create = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
         background2 = new javax.swing.JLabel();
@@ -96,19 +97,42 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 127, 120, -1));
+=======
+        Start = new javax.swing.JButton();
+        Cancel = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Project Demon");
+
+        FirstName.setText("First Name :");
+
+        LastName.setText("Last Name :");
+
+        Username.setText("Username :");
+
+        Password.setText("Password :");
+
+        ConfirmPassword.setText("Confirm Password :");
+
+        Title.setText("Create Player");
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordFieldActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 161, 120, -1));
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         ConfirmPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmPasswordFieldActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(ConfirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 195, 120, -1));
 
         create.setText("Create");
@@ -118,6 +142,15 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 241, 86, -1));
+=======
+
+        Start.setText("Create");
+        Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartActionPerformed(evt);
+            }
+        });
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         Cancel.setText("Cancel");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -125,16 +158,96 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
                 CancelActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 241, -1, -1));
 
         background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Game/resources/background2.jpg"))); // NOI18N
         background2.setText("jLabel1");
         getContentPane().add(background2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
+=======
+
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(63, 63, 63)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(Start)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(Cancel))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, ConfirmPassword)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, Password)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, Username)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, LastName)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, FirstName))
+                        .add(84, 84, 84)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(UsernameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(PasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(ConfirmPasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(LastNameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(FirstNameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(Title)
+                .add(178, 178, 178))
+        );
+
+        layout.linkSize(new java.awt.Component[] {ConfirmPassword, FirstName, LastName, Password, Username}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        layout.linkSize(new java.awt.Component[] {ConfirmPasswordField, FirstNameField, LastNameField, PasswordField, UsernameField}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        layout.linkSize(new java.awt.Component[] {Cancel, Start}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        layout.setVerticalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(14, 14, 14)
+                .add(Title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 29, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(UsernameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(layout.createSequentialGroup()
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(FirstName)
+                                        .add(26, 26, 26)
+                                        .add(LastName))
+                                    .add(layout.createSequentialGroup()
+                                        .add(FirstNameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(LastNameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(18, 18, 18)
+                                .add(Username)))
+                        .add(18, 18, 18)
+                        .add(Password))
+                    .add(PasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(ConfirmPassword)
+                    .add(ConfirmPasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(Cancel)
+                    .add(Start))
+                .add(29, 29, 29))
+        );
+
+        layout.linkSize(new java.awt.Component[] {ConfirmPassword, FirstName, LastName, Password, Username}, org.jdesktop.layout.GroupLayout.VERTICAL);
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
+<<<<<<< HEAD
 // if enter key is pressed we assume to create
         createActionPerformed(evt);        
     }//GEN-LAST:event_PasswordFieldActionPerformed
@@ -142,6 +255,15 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
     private void ConfirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmPasswordFieldActionPerformed
 // if enter key is pressed we assume to create
         createActionPerformed(evt);       
+=======
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordFieldActionPerformed
+
+    private void ConfirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmPasswordFieldActionPerformed
+        // Checks to see if the password is incorrect 
+        
+    
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
     }//GEN-LAST:event_ConfirmPasswordFieldActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -149,9 +271,14 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_CancelActionPerformed
+<<<<<<< HEAD
    
    
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+=======
+
+    private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
         // Need to do three things:
         // Check password with confirm password and make sure all blocks have been filled.
         // Note that creation doesn't check if username is already taken!
@@ -178,6 +305,7 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
         }
         else
         {
+<<<<<<< HEAD
             // Go to the HappinessCriteria page
             int showConfirmDialog = JOptionPane.showConfirmDialog(this, "Is this Correct??", "Validate" , 2 , JOptionPane.QUESTION_MESSAGE); 
             if(showConfirmDialog == 0)
@@ -204,6 +332,32 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
 // if enter key is pressed we assume to create
         createActionPerformed(evt);
     }//GEN-LAST:event_UsernameFieldActionPerformed
+=======
+            BufferedWriter writer;
+            try
+            {
+                writer = new BufferedWriter( new FileWriter("players.txt",true));
+                writer.write(pInfo);
+                writer.append("\n");
+                writer.close();
+                this.dispose();
+            } 
+            catch(IOException ioe)
+            {
+                JOptionPane.showMessageDialog(this, "Can't Write File", "Error", 0);
+            }
+            
+        }    
+        
+        
+        // Create a new player profile with the details obtained!
+        
+     
+        
+        
+       
+    }//GEN-LAST:event_StartActionPerformed
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
     /**
      * @param args the command line arguments
@@ -249,6 +403,7 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField LastNameField;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordField;
+<<<<<<< HEAD
     private javax.swing.JLabel Title;
     private javax.swing.JLabel Username;
     private javax.swing.JTextField UsernameField;
@@ -256,4 +411,11 @@ public class CreatePlayerGUI extends javax.swing.JFrame {
     private javax.swing.JButton create;
     // End of variables declaration//GEN-END:variables
    
+=======
+    private javax.swing.JButton Start;
+    private javax.swing.JLabel Title;
+    private javax.swing.JLabel Username;
+    private javax.swing.JTextField UsernameField;
+    // End of variables declaration//GEN-END:variables
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 }

@@ -1,74 +1,132 @@
+package Board;
+
 /**
  * Board Class is used to generate game board at the start of the game
  * and hold tiles
  */
 
-package Board;
-
 import Game.LocalPlayer;
+import Player.PlayerSprite;
+
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class Board extends JPanel implements ActionListener
-{
-    
+public class Board extends JFrame implements ActionListener{
     private static final int INTERVAL = 250;
     private int height = 800;
     private int width = 800;
     private int framex = 0;
     private int framey = 0;
+    Map map_terra; 
+    public Territory territory;
+    private JButton save;
     Tile[] tilepad;
+    JFrame frame = new JFrame();
+    JPanel p = new JPanel();
     private javax.swing.Timer timer;
 
-    /* Constructor is used for gerneration of the game board */
-    public Board()
-    {
-        setLayout( new BorderLayout());
-        int h = 40;
-        int w = 40;
-        tilepad = new Tile[300];
+    /** Board will not be used to draw the territory
+     * 
+     * @param territory the territory we are displaying at this moment
+     */
+    public Board(){
         
-        for( int i = 0 ; i < tilepad.length; i++ ) 
-        {
-           tilepad[i] = new Tile( framex, framey, w, h);
-           if(framex+w >= width)
-           {
-               framey = framey + h+1;   
-               framex = 0;
-           }
-           else
-           {               
-               framex = framex + w+1;                
-           } 
-         }
+        frame = new JFrame();
+        //frame.add(map);
+
+             
+    }
+    public Board(Territory territory){
            
-        timer = new javax.swing.Timer(INTERVAL, this);
-        timer.start();
-        add(LocalPlayer.current_Player.icon);
-   }
+             System.out.println("Territory was: " + territory.getName());
+             territory.repaint();
+             save = new JButton("Click to save and exit");
+             save.addActionListener(this);
+            p.setLayout( new BoxLayout(p, BoxLayout.PAGE_AXIS));
+           // p.setLayout(new GridBagLayout());
+             //GridBagConstraints c = new GridBagConstraints();
+             
+            // c.fill = GridBagConstraints.VERTICAL;
+             p.add(save);
+             Map map =  new Map();
+             // c.fill = GridBagConstraints.VERTICAL;
+             p.add(map);
+  
+             frame = new JFrame();
+             this.frame = frame;
+             frame.add(territory); 
+             frame.add( p, BorderLayout.EAST);
+             //frame.add(map);
+             frame.setSize( territory.getTerritoryWidth() + 250, territory.getTerritoryHeight() + 200 ); 
+             frame.setJMenuBar(new Menu().getMenuBar());
+             frame.setTitle( territory.getName() );
+             frame.setDefaultCloseOperation( frame.DO_NOTHING_ON_CLOSE );
+             frame.setVisible( true );
+             
+             add(LocalPlayer.current_Player.icon);
+             territory.addPlayer(LocalPlayer.current_Player);
+             LocalPlayer.current_Player.icon.repaint();
+              MovementCentre move = new MovementCentre(LocalPlayer.current_Player);
+              move.setFocusable(true);
+              frame.add(move);
+              territory.repaint();
+}
    
-    @Override
-    /* Paints the tiles onto the game board */
-    public void paintComponent( Graphics g ) 
-    {       
-        super.paintComponent(g);
+    /**@Override
+    public void paintComponent( Graphics g ) {       
+        super.paintComponent( g );
         Graphics2D g2d = (Graphics2D)g;
-        for( int i = 0 ; i < tilepad.length; i++ ) 
-        {
-            tilepad[i].draw(g2d); 
+        for( int i = 0 ; i < tilepad.length; i++ ) {
+                tilepad[i].draw(g2d); 
         }        
     }
-    
-    public int[] getBoundary()
-    {
+    * */
+    public int[] getBoundary(){
         int[] arr = {width, height}; 
         return arr; 
     }
     
+    public void placeTerritory( Territory terra){
+        
+        this.territory = terra;
+        p.removeAll();
+        p.revalidate();
+        System.out.println("Territory was: " + territory.getName());
+        territory.repaint();
+        save = new JButton("Click to save and exit");
+        save.addActionListener(this);
+        p.setLayout( new BoxLayout(p, BoxLayout.PAGE_AXIS));
+           
+        p.add(save);
+        Map map =  new Map();
+       // c.fill = GridBagConstraints.VERTICAL;
+        p.add(map);
+        p.revalidate();  
+        frame = new JFrame();
+         this.frame = frame;
+         territory.repaint();
+         frame.add(territory); 
+        frame.add( p, BorderLayout.EAST);
+        frame.setSize( territory.getTerritoryWidth() + 320, territory.getTerritoryHeight() + 100 ); 
+        frame.setTitle( territory.getName() );
+         
+        frame.setVisible( true );
+        territory.repaint();
+               
+        
+    }
+    
+    //@Override
+    public void reshow (){   
+       territory.repaint();
+        
+    }
     @Override
-    public void actionPerformed( ActionEvent evt ) 
-    {
-    /**Code to handle animation*/
-    }    
+    public void actionPerformed(ActionEvent ae) {
+        System.out.println("Closing the frame yo");
+        this.frame.dispose();
+        System.exit(10);
+
+    }
 }

@@ -20,8 +20,11 @@ public class StartMenuGUI extends javax.swing.JFrame {
      */
     public StartMenuGUI() {
         initComponents();
+<<<<<<< HEAD
         Sound.musicPlay("EvilMusic.wav");
         
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
     }
 
     /**
@@ -40,12 +43,16 @@ public class StartMenuGUI extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         createAccount = new javax.swing.JButton();
         start = new javax.swing.JButton();
+<<<<<<< HEAD
         jLabel1 = new javax.swing.JLabel();
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Start Menu");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -63,12 +70,23 @@ public class StartMenuGUI extends javax.swing.JFrame {
         password.setText("Password :");
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 167, 77, -1));
 
+=======
+
+        title.setText("                          Project Demon");
+
+        username.setText("Username:");
+
+        password.setText("Password :");
+
+        usernameField.setText("test");
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
         usernameField.setName(""); // NOI18N
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameFieldActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 115, 150, -1));
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +95,10 @@ public class StartMenuGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 161, 150, -1));
+=======
+
+        passwordField.setText("test");
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         createAccount.setText("Create Account");
         createAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +106,10 @@ public class StartMenuGUI extends javax.swing.JFrame {
                 createAccountActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 269, -1, -1));
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         start.setText("Start");
         start.addActionListener(new java.awt.event.ActionListener() {
@@ -92,17 +117,74 @@ public class StartMenuGUI extends javax.swing.JFrame {
                 startActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 269, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Game/resources/startMenu.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
+=======
+
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(143, 143, 143)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(password, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                            .add(username, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(18, 18, 18)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(usernameField)
+                            .add(passwordField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(layout.createSequentialGroup()
+                                .add(createAccount)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(start))
+                            .add(title, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(143, 143, 143))))
+        );
+
+        layout.linkSize(new java.awt.Component[] {createAccount, start}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        layout.linkSize(new java.awt.Component[] {passwordField, usernameField}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
+        layout.setVerticalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(41, 41, 41)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(username)
+                    .add(usernameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(password)
+                    .add(passwordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(80, 80, 80)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(createAccount)
+                    .add(start))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
+<<<<<<< HEAD
         // If enter is pressed we assume to start game
         startActionPerformed(evt);
+=======
+        // TODO add your handling code here:
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
@@ -143,6 +225,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
                         {
                             // Set up the board and dispose of start menu and close file
                             System.out.println("We have found a match");
+<<<<<<< HEAD
                             JOptionPane.showMessageDialog(this, "Welcome " + UandP[2] +" "+UandP[3], "Logged on", 1);
                             JOptionPane.showMessageDialog(this, "Happiness are: " +  "Wealth:"+ UandP[4]+ " Solitude:" +UandP[5]
                                     + " Power:" + UandP[6], line, 1); 
@@ -152,6 +235,15 @@ public class StartMenuGUI extends javax.swing.JFrame {
                             new Board.Main().setVisible(true);                        
                             this.dispose();
                             Sound.musicStop();
+=======
+                            JOptionPane.showMessageDialog(this, "player logged in is :" + UandP[2] +" "+UandP[3], line, 1);
+                            
+                            PlayerProfile login_player = new PlayerProfile(UandP[0],UandP[1],UandP[2],UandP[3]);
+                            LocalPlayer.setLocalPlayer(login_player);
+                            //GameMain.active.addPlayer(login_player);
+                            new Board.Main().setVisible(true);                            
+                            this.dispose();
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
                             return;
                         }                         
                     }    
@@ -177,11 +269,14 @@ public class StartMenuGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_startActionPerformed
 
+<<<<<<< HEAD
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
 // if enter key is pressed we assume to create
         startActionPerformed(evt);        
     }//GEN-LAST:event_passwordFieldActionPerformed
 
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
     /**
      * @param args the command line arguments
      */
@@ -218,7 +313,10 @@ public class StartMenuGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createAccount;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
+=======
+>>>>>>> 4c3d7701a525dc1e06b9fb83c241ff5c646ba573
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton start;
