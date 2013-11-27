@@ -13,6 +13,7 @@ import java.net.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Net.Packet.Packet;
+import Net.Packet.PacketLogin;
 
 public class GameClient extends Thread 
 {
@@ -60,12 +61,12 @@ public class GameClient extends Thread
     {
         //extracts packet type
         String type = new String(data).trim().substring(0,1);
-        Packet toParse;
+        Packet rPacket;
         switch(type){
             case "1":
-                toParse = new PacketLogin(data);
-                System.out.println("Entered Client Parse site "+ login.userName);
-                PlayerProfile newLogin = new PlayerProfile(login.userName);
+                rPacket = new PacketLogin(data);
+                System.out.println("Entered Client Parse site "+ ((PacketLogin)rPacket).getUserName());
+                PlayerProfile newLogin = new PlayerProfile(((PacketLogin)rPacket).getUserName(),((PacketLogin)rPacket).getXCoord(), ((PacketLogin)rPacket).getYCoord() );
                 mainGame.connected.add(newLogin);
                 //creates instance of all logged in players
                 for(PlayerProfile p: mainGame.connected)
@@ -76,8 +77,10 @@ public class GameClient extends Thread
                     mainGame.board.repaint();
                 }
                 Holder.holder = newLogin;
+                break;     
+            default:
+                System.out.println("CLIENT CASE 1 FAILED");
                 break;
-                
         }          
     }
         
