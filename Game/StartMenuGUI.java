@@ -20,6 +20,8 @@ public class StartMenuGUI extends javax.swing.JFrame {
      */
     public StartMenuGUI() {
         initComponents();
+        Sound.musicPlay("EvilMusic.wav");
+        
     }
 
     /**
@@ -38,17 +40,28 @@ public class StartMenuGUI extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         createAccount = new javax.swing.JButton();
         start = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Start Menu");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        title.setText("                          Project Demon");
+        title.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Project Demon");
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 286, 68));
 
+        username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username:");
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 121, 77, -1));
 
+        password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("Password :");
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 167, 77, -1));
 
         usernameField.setName(""); // NOI18N
         usernameField.addActionListener(new java.awt.event.ActionListener() {
@@ -56,12 +69,14 @@ public class StartMenuGUI extends javax.swing.JFrame {
                 usernameFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 115, 150, -1));
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 161, 150, -1));
 
         createAccount.setText("Create Account");
         createAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +84,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
                 createAccountActionPerformed(evt);
             }
         });
+        getContentPane().add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 269, -1, -1));
 
         start.setText("Start");
         start.addActionListener(new java.awt.event.ActionListener() {
@@ -76,62 +92,17 @@ public class StartMenuGUI extends javax.swing.JFrame {
                 startActionPerformed(evt);
             }
         });
+        getContentPane().add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 269, 140, -1));
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(143, 143, 143)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(password, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                            .add(username, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .add(18, 18, 18)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(usernameField)
-                            .add(passwordField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(layout.createSequentialGroup()
-                                .add(createAccount)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(start))
-                            .add(title, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .add(143, 143, 143))))
-        );
-
-        layout.linkSize(new java.awt.Component[] {createAccount, start}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
-
-        layout.linkSize(new java.awt.Component[] {passwordField, usernameField}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(41, 41, 41)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(username)
-                    .add(usernameField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(password)
-                    .add(passwordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(80, 80, 80)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(createAccount)
-                    .add(start))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Game/resources/startMenu.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
+        // If enter is pressed we assume to start game
+        startActionPerformed(evt);
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
@@ -172,13 +143,15 @@ public class StartMenuGUI extends javax.swing.JFrame {
                         {
                             // Set up the board and dispose of start menu and close file
                             System.out.println("We have found a match");
-                            JOptionPane.showMessageDialog(this, "player logged in is :" + UandP[2] +" "+UandP[3], line, 1);
-                            
+                            JOptionPane.showMessageDialog(this, "Welcome " + UandP[2] +" "+UandP[3], "Logged on", 1);
+                            JOptionPane.showMessageDialog(this, "Happiness are: " +  "Wealth:"+ UandP[4]+ " Solitude:" +UandP[5]
+                                    + " Power:" + UandP[6], line, 1); 
                             PlayerProfile login_player = new PlayerProfile(UandP[0],UandP[1],UandP[2],UandP[3]);
                             LocalPlayer.setLocalPlayer(login_player);
                             GameMain.active.addPlayer(login_player);
-                            new Board.Main().setVisible(true);                            
+                            new Board.Main().setVisible(true);                        
                             this.dispose();
+                            Sound.musicStop();
                             return;
                         }                         
                     }    
@@ -205,7 +178,8 @@ public class StartMenuGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_startActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
+// if enter key is pressed we assume to create
+        startActionPerformed(evt);        
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
@@ -244,6 +218,7 @@ public class StartMenuGUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createAccount;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton start;
